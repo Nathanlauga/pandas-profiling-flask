@@ -1,0 +1,11 @@
+<h1>Rapports pandas-profiling générés</h1>
+
+<hr>
+
+{% if session['error'] is defined %}
+<div style="color:red;">{{session['error']}}</div>
+{% endif %}
+
+{% for file in files %}
+<div><a href="reports?name={{file}}">{{ file }}</a></div>
+{% endfor %}

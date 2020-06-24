@@ -1,0 +1,23 @@
+
+<h1>Connexion Oracle</h1>
+
+<form action="/connect-oracle" method="post">
+    <label for="server">Serveur Oracle :</label>
+    <input type="text" name="server" id="server" required> <br>
+    <label for="port">Port :</label>
+    <input type="text" name="port" id="port" required> <br>
+    <label for="service">Service :</label>
+    <input type="text" name="service" id="service" required> <br>
+    <label for="user">Utilisateur :</label>
+    <input type="text" name="user" id="user" required> <br>
+    <label for="pwd">Mot de passe :</label>
+    <input type="password" name="pwd" id="pwd" required> <br>
+    
+    <input type="hidden" name="input-type" value="connect-oracle">
+    <input type="submit">
+</form>
+
+
+{% if session['error'] is defined %}
+<div style="color:red;">{{session['error']}}</div>
+{% endif %}

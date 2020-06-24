@@ -1,0 +1,26 @@
+<h1>Pandas profiling</h1>
+
+<ul>
+    <li>1. Choisir des données (CSV, Excel ou Oracle)</li>
+    <li>2. Charger les données</li>
+    <li>3. Choisir dossier où sauvegarder le rapport</li>
+</ul>
+
+<hr>
+
+{% if session['error'] is defined %}
+<div style="color:red;">{{session['error']}}</div>
+{% endif %}
+
+{% if session['output_path'] is defined %}
+<div>Rapport sauvegardé ici : <a target="_blank" href="{{ session['output_path'] }}">{{ session['output_path'] }}</a></div>
+{% endif %}
+
+<hr>
+
+<a href="/load-file"><button>Chargement par fichier</button></a>
+<a href="/connect-oracle"><button>Chargement par Oracle</button></a>
+
+<hr>
+
+<a href="/reports"><button>Voir les rapports générés</button></a>

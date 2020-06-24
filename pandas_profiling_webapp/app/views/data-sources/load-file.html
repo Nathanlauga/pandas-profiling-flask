@@ -1,0 +1,13 @@
+<h2>Charger fichier Csv ou Excel</h2>
+
+<form action="/load-file" method="post">
+    <label for="file-path">Entrer le chemin de votre fichier source :</label>
+    <input type="text" name="file-path" id="file-path" required> <br>
+    
+    <input type="hidden" name="input-type" value="file">
+    <input type="submit">
+</form>
+
+{% if session['error'] is defined %}
+<div style="color:red;">{{session['error']}}</div>
+{% endif %}
