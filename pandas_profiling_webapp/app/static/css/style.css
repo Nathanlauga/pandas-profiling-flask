@@ -2,8 +2,7 @@
   height: 95%; /* Fallback for browsers do NOT support vh unit */
   height: 95vh; /* Fallback for browsers do NOT support vh unit */
 
-  padding-top: 5% !important;
-  padding-top: 5vh !important;
+  padding-top: 76px !important;
 
   display: flex;
   align-items: center;
