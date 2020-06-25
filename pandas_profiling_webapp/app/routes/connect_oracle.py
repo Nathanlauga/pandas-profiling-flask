@@ -2,7 +2,7 @@ from flask import render_template, session, request, redirect, url_for
 import cx_Oracle
 
 from ..utils import set_session_var, check_session_var
-
+from ... import app
 
 
 def get_connect_oracle():
@@ -31,7 +31,7 @@ def post_connect_oracle():
         set_session_var('error', str(exception))
         return redirect(url_for("get_connect_oracle"))
 
-    set_session_var('con', con)
-    set_session_var('input-type', 'oracle')
+    print('Connected to Oracle database.')
+    app.con = con
 
-    return redirect(url_for("sql"))
+    return redirect(url_for("get_sql"))

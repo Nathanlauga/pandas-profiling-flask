@@ -1,11 +1,28 @@
-<h1>Rapports pandas-profiling générés</h1>
+{% from 'commons/head.html' import head %}
 
-<hr>
+<html>
+  <head>
+    {{ head(title='Rapports générés') }}
+  </head>
+  <body>
+    {% include 'commons/header.html' %}
+    <div class="vertical-center">
+      <div class="container">
+        <h2 class="mb-5">Liste des rapports générés</h2>
+        <hr />
 
-{% if session['error'] is defined %}
-<div style="color:red;">{{session['error']}}</div>
-{% endif %}
-
-{% for file in files %}
-<div><a href="reports?name={{file}}">{{ file }}</a></div>
-{% endfor %}
+        <div class="row text-center">
+          {% for file in files %}
+          <div class="col-sm-4">
+            <a href="reports?name={{file}}">
+              <button class="pl-5 pr-5 btn btn-light btn-lg">
+                {{ file }}
+              </button>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

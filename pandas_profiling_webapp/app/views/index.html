@@ -1,26 +1,25 @@
-<h1>Pandas profiling</h1>
+{% from 'commons/head.html' import head %}
+{% from 'commons/svg-button.html' import svg_button %}
 
-<ul>
-    <li>1. Choisir des données (CSV, Excel ou Oracle)</li>
-    <li>2. Charger les données</li>
-    <li>3. Choisir dossier où sauvegarder le rapport</li>
-</ul>
+<html>
+  <head>
+    {{ head(title='Pandas profiling Webapp') }}
+  </head>
+  <body>
+    {% include 'commons/header.html' %}
+    <div class="vertical-center">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col">
+            {{ svg_button(svg_path='img/spreadsheet.svg', text='Charger depuis un fichier', href='/load-file') }}
+          </div>
+          <div class="col">
+            {{ svg_button(svg_path='img/database.svg', text='Charger depuis Oracle', href='/connect-oracle') }}
+          </div>
+        </div>
 
-<hr>
-
-{% if session['error'] is defined %}
-<div style="color:red;">{{session['error']}}</div>
-{% endif %}
-
-{% if session['output_path'] is defined %}
-<div>Rapport sauvegardé ici : <a target="_blank" href="{{ session['output_path'] }}">{{ session['output_path'] }}</a></div>
-{% endif %}
-
-<hr>
-
-<a href="/load-file"><button>Chargement par fichier</button></a>
-<a href="/connect-oracle"><button>Chargement par Oracle</button></a>
-
-<hr>
-
-<a href="/reports"><button>Voir les rapports générés</button></a>
+        {% include 'commons/messages.html' %}
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="{{ url_for('static', filename='img/panda.svg') }}" width="50" height="50" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/reports">Rapports générés</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Générer un rapport
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/load-file">Depuis un fichier</a>
+            <a class="dropdown-item" href="/connect-oracle">Depuis Oracle</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>

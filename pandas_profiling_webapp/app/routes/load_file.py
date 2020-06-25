@@ -14,13 +14,7 @@ def get_load_file():
 def post_load_file():
     data = request.form
 
-    if 'input-type' not in data:
-        return redirect(url_for("get_load_file"))
     if 'file-path' not in data:
-        return redirect(url_for("get_load_file"))
-
-    input_type = data['input-type']
-    if input_type != 'file':
         return redirect(url_for("get_load_file"))
 
     fpath = data['file-path']
@@ -41,6 +35,7 @@ def post_load_file():
         return redirect(url_for("get_load_file"))
 
     # 3. Generate pandas-profiling report
+    fpath = fpath.replace('\\','/')
     title = fpath.split('/')[-1].split('.')[-2]
     generate_pandas_prof_report(data, title)
 

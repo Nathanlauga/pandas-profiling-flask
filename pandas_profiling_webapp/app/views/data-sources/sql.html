@@ -1,0 +1,70 @@
+{% from 'commons/head.html' import head %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {{ head(title='SQL') }}
+
+    <script src="{{ url_for('static', filename='js/codemirror.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/codemirror.css') }}"
+    />
+
+    <script src="{{ url_for('static', filename='js/sql.js') }}"></script>
+    <style>
+      .CodeMirror {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        height: 500px;
+      }
+    </style>
+    <link rel="stylesheet" href="../../doc/docs.css" />
+    <script>
+      var init = function () {
+        var mime = "text/x-plsql";
+
+        // get mime type
+        if (window.location.href.indexOf("mime=") > -1) {
+          mime = window.location.href.substr(
+            window.location.href.indexOf("mime=") + 5
+          );
+        }
+
+        window.editor = CodeMirror.fromTextArea(
+          document.getElementById("code"),
+          {
+            mode: mime,
+            indentWithTabs: true,
+            smartIndent: true,
+            lineNumbers: true,
+            matchBrackets: true,
+            autofocus: true,
+            extraKeys: { "Ctrl-Space": "autocomplete" },
+          }
+        );
+      };
+    </script>
+  </head>
+  <body onload="init();">
+    {% include 'commons/header.html' %}
+    <div class="vertical-center">
+      <div class="container">
+        <h2 class="mb-5">Requête SQL</h2>
+        <hr>
+        <form action="/sql" method="post">
+          <textarea id="code" name="code"></textarea>
+          <div class="mt-3">
+          <button onclick="show_load();" type="submit" class="btn btn-secondary mb-2">
+            Exécuter la requête
+          </button>
+        </div>
+        </form>
+
+        {% include 'commons/messages.html' %}
+      </div>
+    </div>
+
+    {% include 'commons/load.html' %}
+  </body>
+</html>

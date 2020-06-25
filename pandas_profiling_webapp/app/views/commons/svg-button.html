@@ -1,0 +1,20 @@
+{% macro svg_button(svg_path, text, href) -%}
+<div>
+    <a href="{{ href }}">
+      <button class="btn btn-lg p-5 border btn btn-light">
+        <div style="pointer-events: none;">
+          <img
+            src="{{ url_for('static', filename=svg_path) }}"
+            width="220"
+            height="220"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="p-1 pt-3 text-secondary">
+              {{ text }}
+          </div>
+        </div>
+      </button>
+    </a>
+  </div>
+{%- endmacro %}

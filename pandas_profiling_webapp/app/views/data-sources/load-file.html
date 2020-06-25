@@ -1,13 +1,40 @@
-<h2>Charger fichier Csv ou Excel</h2>
+{% from 'commons/head.html' import head %}
+<html>
+  <head>
+    {{ head(title='Pandas profiling Webapp') }}
+  </head>
+  <body>
+    {% include 'commons/header.html' %}
+    <div class="vertical-center">
+      <div class="container">
+        <h2 class="mb-5">Charger depuis un fichier CSV ou Excel</h2>
+        <hr />
 
-<form action="/load-file" method="post">
-    <label for="file-path">Entrer le chemin de votre fichier source :</label>
-    <input type="text" name="file-path" id="file-path" required> <br>
-    
-    <input type="hidden" name="input-type" value="file">
-    <input type="submit">
-</form>
+        <form action="/load-file" method="post">
+          <div class="form-group row">
+            <label for="file-path" class="col-sm-4 col-form-label"
+              >Entrer le chemin de votre fichier source :</label
+            >
+            <div class="col-sm-8">
+              <input
+                class="form-control"
+                type="text"
+                name="file-path"
+                id="file-path"
+                required
+              />
+            </div>
+          </div>
+          <button onclick="show_load();" type="submit" class="btn btn-secondary mb-2">
+            Charger le fichier
+          </button>
+        </form>
 
-{% if session['error'] is defined %}
-<div style="color:red;">{{session['error']}}</div>
-{% endif %}
+        
+        {% include 'commons/messages.html' %}
+      </div>
+    </div>
+
+    {% include 'commons/load.html' %}
+  </body>
+</html>

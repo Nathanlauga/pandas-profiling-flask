@@ -1,23 +1,56 @@
+{% from 'commons/head.html' import head %}
 
-<h1>Connexion Oracle</h1>
+<html>
+  <head>
+    {{ head(title='Connexion Oracle') }}
+  </head>
+  <body>
+    {% include 'commons/header.html' %}
+    <div class="vertical-center">
+      <div class="container">
+        <h2 class="mb-5">Connexion Oracle</h2>
+        <hr>
 
-<form action="/connect-oracle" method="post">
-    <label for="server">Serveur Oracle :</label>
-    <input type="text" name="server" id="server" required> <br>
-    <label for="port">Port :</label>
-    <input type="text" name="port" id="port" required> <br>
-    <label for="service">Service :</label>
-    <input type="text" name="service" id="service" required> <br>
-    <label for="user">Utilisateur :</label>
-    <input type="text" name="user" id="user" required> <br>
-    <label for="pwd">Mot de passe :</label>
-    <input type="password" name="pwd" id="pwd" required> <br>
-    
-    <input type="hidden" name="input-type" value="connect-oracle">
-    <input type="submit">
-</form>
+        <form action="/connect-oracle" method="post">
 
+          <div class="form-group row">
+          <label for="server" class="col-sm-2 col-form-label text-right">Serveur Oracle :</label>
+          <div class="col-sm-6">
+          <input type="text" class="form-control" name="server" id="server" required />
+          
+        </div>
+          <label for="port" class="col-sm-2 col-form-label text-right">Port :</label>
+          <div class="col-sm-2">
+          <input type="text" class="form-control" name="port" id="port" required />
+          
+        </div>
+      </div>
 
-{% if session['error'] is defined %}
-<div style="color:red;">{{session['error']}}</div>
-{% endif %}
+          <div class="form-group row">
+            <label for="service" class="col-sm-2 col-form-label text-right">Service :</label>
+            <div class="col-sm-2">
+          <input type="text" class="form-control" name="service" id="service" required />
+          
+        </div><label for="user" class="col-sm-2 col-form-label text-right">Utilisateur :</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" name="user" id="user" required /> 
+          
+        </div><label for="pwd" class="col-sm-2 col-form-label text-right">Mot de passe :</label>
+            <div class="col-sm-2">
+          <input type="password" class="form-control" name="pwd" id="pwd" required />
+
+        </div>
+      </div>
+      <button onclick="show_load();" type="submit" class="btn btn-secondary mb-2">
+        Connexion à la Base de données Oracle
+      </button>
+        </form>
+
+        
+        {% include 'commons/messages.html' %}
+      </div>
+    </div>
+
+    {% include 'commons/load.html' %}
+  </body>
+</html>

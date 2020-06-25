@@ -1,0 +1,25 @@
+<div id="load" class="d-none load-bg"><div class="loader"></div></div>
+<script>
+  function checkInputs() {
+    var isValid = true;
+    $("input")
+      .filter("[required]")
+      .each(function () {
+        if ($(this).val() === "") {
+          $("#confirm").prop("disabled", true);
+          isValid = false;
+          return false;
+        }
+      });
+    if (isValid) {
+      $("#confirm").prop("disabled", false);
+    }
+    return isValid;
+  }
+
+  function show_load() {
+    if (checkInputs()) {
+      $("#load").toggleClass("d-none");
+    }
+  }
+</script>

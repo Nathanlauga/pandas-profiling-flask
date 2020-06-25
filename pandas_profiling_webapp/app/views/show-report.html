@@ -1,9 +1,9 @@
 
-<hr>
+<div style="text-align: center;">
 <a href='/reports'><button>Retour à la liste des rapports</button></a>
-<button>Télécharger le rapport</button>
-<hr>
-
+<!-- <a href="file://{{path}}{{name}}" download><button>Télécharger le rapport</button></a> -->
+<a href="/show-report?name={{name}}" download={{name}}><button>Télécharger le rapport</button></a>
+</div>
 {% if name is defined %}
 {% include 'reports/'+name %}
 {% endif %}

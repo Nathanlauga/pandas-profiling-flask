@@ -1,0 +1,12 @@
+{% if session['error'] is defined %}
+<div>
+  Une erreur est survenue :
+  <span class="text-danger">
+    {{session['error']}}
+  </span>
+</div>
+{% endif %} {% if session['success'] is defined %}
+<div class="text-success">
+  {{session['success']}}
+</div>
+{% endif %}
