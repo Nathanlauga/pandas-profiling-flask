@@ -9,20 +9,35 @@
     <div class="vertical-center">
       <div class="container">
         <h2 class="mb-5">Liste des rapports générés</h2>
-        <hr />
 
-        <div class="row text-center">
-          {% for file in files %}
-          <div class="col-sm-4">
-            <a href="reports?name={{file}}">
-              <button class="pl-5 pr-5 btn btn-light btn-lg">
-                {{ file }}
-              </button>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nom du rapport</th>
+              <th scope="col">Dernière mise à jours</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for file in files %}
+            <tr
+              class="clickable"
+              onclick="window.location='/reports?name={{file.path}}'"
+            >
+              <th scope="row">{{ file.path }}</th>
+              <td>{{ file.last_update }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function ($) {
+        $(".table-row").click(function () {
+          window.document.location = $(this).data("href");
+        });
+      });
+    </script>
   </body>
 </html>

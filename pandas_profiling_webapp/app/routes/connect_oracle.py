@@ -7,7 +7,9 @@ from ... import app
 
 def get_connect_oracle():
     check_session_var('error')
-    return render_template("data-sources/connect-oracle.html", session=session)
+    con_exists = app.con is not None
+
+    return render_template("data-sources/connect-oracle.html", session=session, con_exists=con_exists)
 
 
 def post_connect_oracle():

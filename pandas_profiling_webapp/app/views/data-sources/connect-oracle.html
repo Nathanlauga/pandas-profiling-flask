@@ -9,44 +9,94 @@
     <div class="vertical-center">
       <div class="container">
         <h2 class="mb-5">Connexion Oracle</h2>
-        <hr>
+        <hr />
+
+        {% if con_exists %}
+        <div class="text-info">
+          Une connexion est déjà existante, vous pouvez utiliser cette connexion
+          en cliquant ci-dessous.
+
+          <a href="/sql" role="button" class="btn btn-secondary mb-2">
+            Connexion à la Base de données Oracle
+          </a>
+        </div>
+        {% endif %}
 
         <form action="/connect-oracle" method="post">
+          <div class="form-group row">
+            <label for="server" class="col-sm-2 col-form-label text-right"
+              >Serveur Oracle :</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                class="form-control"
+                name="server"
+                id="server"
+                required
+              />
+            </div>
+            <label for="port" class="col-sm-1 col-form-label text-right"
+              >Port :</label
+            >
+            <div class="col-sm-2">
+              <input
+                type="text"
+                class="form-control"
+                name="port"
+                id="port"
+                required
+              />
+            </div>
+            <label for="service" class="col-sm-1 col-form-label text-right"
+              >Service :</label
+            >
+            <div class="col-sm-2">
+              <input
+                type="text"
+                class="form-control"
+                name="service"
+                id="service"
+                required
+              />
+            </div>
+          </div>
 
           <div class="form-group row">
-          <label for="server" class="col-sm-2 col-form-label text-right">Serveur Oracle :</label>
-          <div class="col-sm-6">
-          <input type="text" class="form-control" name="server" id="server" required />
-          
-        </div>
-          <label for="port" class="col-sm-2 col-form-label text-right">Port :</label>
-          <div class="col-sm-2">
-          <input type="text" class="form-control" name="port" id="port" required />
-          
-        </div>
-      </div>
-
-          <div class="form-group row">
-            <label for="service" class="col-sm-2 col-form-label text-right">Service :</label>
-            <div class="col-sm-2">
-          <input type="text" class="form-control" name="service" id="service" required />
-          
-        </div><label for="user" class="col-sm-2 col-form-label text-right">Utilisateur :</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" name="user" id="user" required /> 
-          
-        </div><label for="pwd" class="col-sm-2 col-form-label text-right">Mot de passe :</label>
-            <div class="col-sm-2">
-          <input type="password" class="form-control" name="pwd" id="pwd" required />
-
-        </div>
-      </div>
-      <button onclick="show_load();" type="submit" class="btn btn-secondary mb-2">
-        Connexion à la Base de données Oracle
-      </button>
+            <label for="user" class="col-sm-2 col-form-label text-right"
+              >Utilisateur :</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="text"
+                class="form-control"
+                name="user"
+                id="user"
+                required
+              />
+            </div>
+            <label for="pwd" class="col-sm-2 col-form-label text-right"
+              >Mot de passe :</label
+            >
+            <div class="col-sm-4">
+              <input
+                type="password"
+                class="form-control"
+                name="pwd"
+                id="pwd"
+                required
+              />
+            </div>
+          </div>
+          <button
+            onclick="show_load();"
+            type="submit"
+            class="btn btn-secondary mb-2"
+          >
+            Connexion à la Base de données Oracle
+          </button>
         </form>
 
-        
         {% include 'commons/messages.html' %}
       </div>
     </div>

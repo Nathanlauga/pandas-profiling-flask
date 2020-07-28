@@ -13,7 +13,7 @@ def get_title_from_query(query):
     if len(query) < 2:
         return 'Résultat Oracle'
 
-    query = query[1].replace('\t', ' ').split(' ')
+    query = query[1].replace('\t', ' ').replace('\n', ' ').replace('\r', ' ').split(' ')
     query = [e for e in query if e != '']
 
     return query[0]

@@ -1,8 +1,6 @@
 .vertical-center {
-  height: 95%; /* Fallback for browsers do NOT support vh unit */
-  height: 95vh; /* Fallback for browsers do NOT support vh unit */
-
-  padding-top: 76px !important;
+  min-height: 80%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 80vh; /* Fallback for browsers do NOT support vh unit */
 
   display: flex;
   align-items: center;
@@ -40,4 +38,7 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.clickable {
+  cursor: pointer !important;
 }
