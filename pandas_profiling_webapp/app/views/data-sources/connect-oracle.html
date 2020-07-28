@@ -12,14 +12,20 @@
         <hr />
 
         {% if con_exists %}
-        <div class="text-info">
-          Une connexion est déjà existante, vous pouvez utiliser cette connexion
-          en cliquant ci-dessous.
 
-          <a href="/sql" role="button" class="btn btn-secondary mb-2">
-            Connexion à la Base de données Oracle
+        <div class="text-secondary">
+          <div class="my-2">
+            Une connexion est déjà existante, vous pouvez utiliser cette
+            connexion en cliquant ci-dessous.
+          </div>
+
+          <a href="/sql" role="button" class="btn btn-info mb-2">
+            Utilisation de la connexion existante
           </a>
         </div>
+
+        <hr />
+
         {% endif %}
 
         <form action="/connect-oracle" method="post">
