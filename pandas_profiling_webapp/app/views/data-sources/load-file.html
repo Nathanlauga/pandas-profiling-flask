@@ -10,24 +10,24 @@
         <h2 class="mb-5">Charger depuis un fichier CSV ou Excel</h2>
         <hr />
 
-        <form action="/load-file" method="post">
-          <div class="form-group row">
-            <label for="file-path" class="col-sm-4 col-form-label"
-              >Entrer le chemin de votre fichier source :</label
-            >
-            <div class="col-sm-8">
+        <form action="/load-file" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="col-sm-5">
               <input
                 class="form-control"
-                type="text"
-                name="file-path"
-                id="file-path"
+                type="file"
+                name="file-upload"
+                id="file-upload"
                 required
               />
             </div>
           </div>
-          <button onclick="show_load();" type="submit" class="btn btn-secondary mb-2">
-            Charger le fichier
-          </button>
+          <input 
+            onclick="show_load();"
+            type="submit" 
+            value="Charger le fichier" 
+            class="btn btn-secondary mb-2"
+          />
         </form>
 
         
