@@ -9,7 +9,7 @@ from os.path import isfile, join
 
 
 def reports():
-    check_session_var('error')
+    check_session_var("error")
     path = get_save_path()
     data = request.args
 
@@ -17,15 +17,19 @@ def reports():
     files = list()
 
     for f in files_names:
-        st = os.stat(path+'/'+f)
-        files.append({
-            'path': f,
-            'last_update': datetime.fromtimestamp(st.st_mtime).strftime('%d/%m/%Y')
-        })
+        st = os.stat(path + "/" + f)
+        files.append(
+            {
+                "path": f,
+                "last_update": datetime.fromtimestamp(st.st_mtime).strftime("%d/%m/%Y"),
+            }
+        )
 
-    if 'name' in data:
-        if data['name'] in files_names:
-            return render_template("show-report.html", session=session, name=data['name'])
+    if "name" in data:
+        if data["name"] in files_names:
+            return render_template(
+                "show-report.html", session=session, name=data["name"]
+            )
 
     return render_template("reports.html", session=session, files=files)
 
@@ -35,8 +39,8 @@ def show_report():
     data = request.args
     files = [f for f in listdir(path) if isfile(join(path, f))]
 
-    if 'name' in data:
-        if data['name'] in files:
-            return render_template("reports/%s" % data['name'])
+    if "name" in data:
+        if data["name"] in files:
+            return render_template("reports/%s" % data["name"])
 
     return ""
