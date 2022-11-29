@@ -18,5 +18,3 @@ $ python -m pip install -r requirements.txt
 ```
 ./start.sh <enter port number, or leave blank to use 5000>
 ```
-
-Credit to Nathan Lauga, for building the initial version of this repo [here on GitHub](https://github.com/Nathanlauga/pandas-profiling-flask).
